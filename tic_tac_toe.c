@@ -31,13 +31,13 @@ void print_field() {
 int start_toss(char* player_symbol, char* computer_symbol) {
     int chance = rand() % 100 + 1;
     if (chance < 50) {
-        printf("Âû õîäèòå ïåðâûì! \n");
+        printf("Ð’Ñ‹ Ñ…Ð¾Ð´Ð¸Ñ‚Ðµ Ð¿ÐµÑ€Ð²Ñ‹Ð¼! \n");
         *player_symbol = 'X';
         *computer_symbol = 'O';
         return 0;
     }
     else {
-        printf("Âû õîäèòå âòîðûì! \n");
+        printf("Ð’Ñ‹ Ñ…Ð¾Ð´Ð¸Ñ‚Ðµ Ð²Ñ‚Ð¾Ñ€Ñ‹Ð¼! \n");
         *player_symbol = 'O';
         *computer_symbol = 'X';
         return 1;
@@ -47,21 +47,21 @@ int start_toss(char* player_symbol, char* computer_symbol) {
 void start_user_move(char player_symbol) {
     int n, m;
     while (1) {
-        printf("Âàø õîä (ââåäèòå íîìåð ñòðîêè è ñòîëáöà ÷åðåç ïðîáåë): ");
+        printf("Ð’Ð°Ñˆ Ñ…Ð¾Ð´ (Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð¾Ð¼ÐµÑ€ ÑÑ‚Ñ€Ð¾ÐºÐ¸ Ð¸ ÑÑ‚Ð¾Ð»Ð±Ñ†Ð° Ñ‡ÐµÑ€ÐµÐ· Ð¿Ñ€Ð¾Ð±ÐµÐ»): ");
         scanf_s("%d %d", &n, &m);
-        n--; //ïðèâîäèì ê ïðàâèëüíûì èíäåêñàì ìàññèâà
+        n--; //Ð¿Ñ€Ð¸Ð²Ð¾Ð´Ð¸Ð¼ Ðº Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ñ‹Ð¼ Ð¸Ð½Ð´ÐµÐºÑÐ°Ð¼ Ð¼Ð°ÑÑÐ¸Ð²Ð°
         m--;
         if (n >= 0 && n < SIZE && m >= 0 && m < SIZE && field[n][m] == ' ') {
             field[n][m] = player_symbol;
             break;
         }
         else {
-            printf("Íåêîððåêòíûé õîä! Ïîïðîáóéòå ñíîâà! \n");
+            printf("ÐÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ð¹ Ñ…Ð¾Ð´! ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÑÐ½Ð¾Ð²Ð°! \n");
         }
     }
 }
 void start_computer_move(char computer_symbol) {
-    printf("Êîìïüþòåð äóìàåò, êàêîé õîä ñäåëàòü ñëåäóþùèì ... \n");
+    printf("ÐšÐ¾Ð¼Ð¿ÑŒÑŽÑ‚ÐµÑ€ Ð´ÑƒÐ¼Ð°ÐµÑ‚, ÐºÐ°ÐºÐ¾Ð¹ Ñ…Ð¾Ð´ ÑÐ´ÐµÐ»Ð°Ñ‚ÑŒ ÑÐ»ÐµÐ´ÑƒÑŽÑ‰Ð¸Ð¼ ... \n");
     Sleep(1000);
     if (field[1][1] == ' ') {
         field[1][1] = computer_symbol;
@@ -72,16 +72,16 @@ void start_computer_move(char computer_symbol) {
             if (field[i][j] == ' ') {
                 field[i][j] = computer_symbol;
                 if (check_win(computer_symbol)) return;
-                field[i][j] = ' '; //âîçâðàùàåì ÿ÷åéêó â èñõîäíîå ñîñòîÿíèå, ÷òîáû ïðîäîëæèòü ïðîâåðêó äðóãèõ ÿ÷ååê.
+                field[i][j] = ' '; //Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÐ¼ ÑÑ‡ÐµÐ¹ÐºÑƒ Ð² Ð¸ÑÑ…Ð¾Ð´Ð½Ð¾Ðµ ÑÐ¾ÑÑ‚Ð¾ÑÐ½Ð¸Ðµ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¿Ñ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÑŒ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÑƒ Ð´Ñ€ÑƒÐ³Ð¸Ñ… ÑÑ‡ÐµÐµÐº.
             }
         }
     }
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
             if (field[i][j] == ' ') {
-                field[i][j] = (computer_symbol == 'O' ? 'X' : 'O'); // ñèìóëÿöèÿ õîäà ïîëüçîâàòåëÿ (åñëè êîìïüþòåð — 'O', òî ñòàâèì 'X', è íàîáîðîò) 
+                field[i][j] = (computer_symbol == 'O' ? 'X' : 'O'); // ÑÐ¸Ð¼ÑƒÐ»ÑÑ†Ð¸Ñ Ñ…Ð¾Ð´Ð° Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ (ÐµÑÐ»Ð¸ ÐºÐ¾Ð¼Ð¿ÑŒÑŽÑ‚ÐµÑ€ â€” 'O', Ñ‚Ð¾ ÑÑ‚Ð°Ð²Ð¸Ð¼ 'X', Ð¸ Ð½Ð°Ð¾Ð±Ð¾Ñ€Ð¾Ñ‚) 
                 if (check_win((computer_symbol == 'O' ? 'X' : 'O'))) { 
-                    field[i][j] = computer_symbol; // çàáëîêèðîâàòü ïîëüçîâàòåëÿ
+                    field[i][j] = computer_symbol; // Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ
                     return;
                 }
                 field[i][j] = ' ';
@@ -99,7 +99,7 @@ void start_computer_move(char computer_symbol) {
 }
 
 int check_win(char player_symbol) {
-    for (int i = 0; i < SIZE; i++) { //ïðîâåðêà, çàïîëíåíà ëè òåêóùàÿ ñòðîêà ñèìâîëîì èãðîêà
+    for (int i = 0; i < SIZE; i++) { //Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ°, Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð° Ð»Ð¸ Ñ‚ÐµÐºÑƒÑ‰Ð°Ñ ÑÑ‚Ñ€Ð¾ÐºÐ° ÑÐ¸Ð¼Ð²Ð¾Ð»Ð¾Ð¼ Ð¸Ð³Ñ€Ð¾ÐºÐ°
         if ((field[i][0] == player_symbol && field[i][1] == player_symbol && field[i][2] == player_symbol) ||
             (field[0][i] == player_symbol && field[1][i] == player_symbol && field[2][i] == player_symbol)) {
             return 1;
@@ -116,7 +116,7 @@ int check_end() {
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
             if (field[i][j] == ' ') {
-                return 0; // åñëè íàéäåíà ïóñòàÿ ÿ÷åéêà, èãðà íå çàêîí÷åíà
+                return 0; // ÐµÑÐ»Ð¸ Ð½Ð°Ð¹Ð´ÐµÐ½Ð° Ð¿ÑƒÑÑ‚Ð°Ñ ÑÑ‡ÐµÐ¹ÐºÐ°, Ð¸Ð³Ñ€Ð° Ð½Ðµ Ð·Ð°ÐºÐ¾Ð½Ñ‡ÐµÐ½Ð°
             }
         }
     }

@@ -13,16 +13,16 @@ void completion(char* user_field, char* game_field) {
     }
 }
 void text_win() {
-    printf("Выбранные карты являются парой!");
+    printf("Р’С‹Р±СЂР°РЅРЅС‹Рµ РєР°СЂС‚С‹ СЏРІР»СЏСЋС‚СЃСЏ РїР°СЂРѕР№!");
     Sleep(1000);
     system("cls");
 }
 void text_lose() {
-    printf("Выбранные карты не являются парой!\n");
+    printf("Р’С‹Р±СЂР°РЅРЅС‹Рµ РєР°СЂС‚С‹ РЅРµ СЏРІР»СЏСЋС‚СЃСЏ РїР°СЂРѕР№!\n");
     Sleep(1000);
     system("cls");
     for (int i = 1; i < 4; i++) {
-        printf("Карты закроются через %d...\n", 4 - i);
+        printf("РљР°СЂС‚С‹ Р·Р°РєСЂРѕСЋС‚СЃСЏ С‡РµСЂРµР· %d...\n", 4 - i);
         Sleep(1000);
         system("cls");
     }
@@ -66,21 +66,21 @@ void print_field_cards(char* game_field, int size) {
 void count_time(int total_time, int attempts) {
     double average_time = (double)total_time / attempts;
 
-    printf("Время игры: %d секунд\n", total_time);
-    printf("Среднее время на попытку: %.2f секунд\n", average_time);
+    printf("Р’СЂРµРјСЏ РёРіСЂС‹: %d СЃРµРєСѓРЅРґ\n", total_time);
+    printf("РЎСЂРµРґРЅРµРµ РІСЂРµРјСЏ РЅР° РїРѕРїС‹С‚РєСѓ: %.2f СЃРµРєСѓРЅРґ\n", average_time);
 
     if (average_time < 5.0) {
-        printf("Результат: Отлично\n");
+        printf("Р РµР·СѓР»СЊС‚Р°С‚: РћС‚Р»РёС‡РЅРѕ\n");
     }
     else if (average_time < 10.0) {
-        printf("Результат: Хорошо\n");
+        printf("Р РµР·СѓР»СЊС‚Р°С‚: РҐРѕСЂРѕС€Рѕ\n");
     }
     else {
-        printf("Результат: Плохо\n");
+        printf("Р РµР·СѓР»СЊС‚Р°С‚: РџР»РѕС…Рѕ\n");
     }
 }
 void main_rec(char* user_field, char* game_field, char* symbols, int* flag, int first_card, int second_card, int count_couple_cards, int* start_time, int* game_over) {
-    static int attempts = 0; // Счетчик попыток
+    static int attempts = 0; // РЎС‡РµС‚С‡РёРє РїРѕРїС‹С‚РѕРє
     system("cls");
     printf(" -------------------------------------------\n");
     printf("|    1    2    3    4    5    6    7    8   |\n");
@@ -90,48 +90,48 @@ void main_rec(char* user_field, char* game_field, char* symbols, int* flag, int 
     printf(" -------------------------------------------\n");
 
     if (*flag == 0) {
-        printf("Введите номер первой карты: ");
+        printf("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РїРµСЂРІРѕР№ РєР°СЂС‚С‹: ");
         scanf_s("%d", &first_card);
         if (first_card > 0 && first_card <= COUNT_OF_CARDS) {
             if (game_field[first_card - 1] == ' ') {
-                *flag = 1; // Изменяем значение по указателю
+                *flag = 1; // РР·РјРµРЅСЏРµРј Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРєР°Р·Р°С‚РµР»СЋ
                 game_field[first_card - 1] = user_field[first_card - 1];
                 main_rec(user_field, game_field, symbols, flag, first_card, second_card, count_couple_cards, start_time, game_over);
             }
             else {
-                printf("Некорректный номер карты, попробуйте снова! ");
+                printf("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РЅРѕРјРµСЂ РєР°СЂС‚С‹, РїРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°! ");
                 Sleep(3000);
             }
         }
         else {
-            printf("Некорректный номер карты, попробуйте снова! ");
+            printf("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РЅРѕРјРµСЂ РєР°СЂС‚С‹, РїРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°! ");
         }
     }
     if (*flag == 1) {
-        *flag = 0; // Изменяем значение по указателю
+        *flag = 0; // РР·РјРµРЅСЏРµРј Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРєР°Р·Р°С‚РµР»СЋ
         attempts++;
-        printf("Введите номер второй карты: ");
+        printf("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РІС‚РѕСЂРѕР№ РєР°СЂС‚С‹: ");
         scanf_s("%d", &second_card);
         if (second_card > 0 && second_card <= COUNT_OF_CARDS) {
             if (game_field[second_card - 1] == ' ') {
-                game_field[second_card - 1] = user_field[second_card - 1]; // Открываем вторую карту
+                game_field[second_card - 1] = user_field[second_card - 1]; // РћС‚РєСЂС‹РІР°РµРј РІС‚РѕСЂСѓСЋ РєР°СЂС‚Сѓ
                 if (second_card == first_card) {
-                    printf("Карта уже была открыта! Выберите другую! ");
+                    printf("РљР°СЂС‚Р° СѓР¶Рµ Р±С‹Р»Р° РѕС‚РєСЂС‹С‚Р°! Р’С‹Р±РµСЂРёС‚Рµ РґСЂСѓРіСѓСЋ! ");
                     Sleep(1000);
-                    game_field[second_card - 1] = ' '; // Закрываем вторую карту
+                    game_field[second_card - 1] = ' '; // Р—Р°РєСЂС‹РІР°РµРј РІС‚РѕСЂСѓСЋ РєР°СЂС‚Сѓ
                 }
                 else if (game_field[second_card - 1] == game_field[first_card - 1]) {
                     count_couple_cards++;
-                    // Проверка условия победы
+                    // РџСЂРѕРІРµСЂРєР° СѓСЃР»РѕРІРёСЏ РїРѕР±РµРґС‹
                     if (count_couple_cards == COUPLE) { 
-                        printf("Ура! Вы верно открыли все карточки!\n");
+                        printf("РЈСЂР°! Р’С‹ РІРµСЂРЅРѕ РѕС‚РєСЂС‹Р»Рё РІСЃРµ РєР°СЂС‚РѕС‡РєРё!\n");
 
-                        // Подсчет времени и вывод результатов
-                        int total_time = (int)time(NULL) - *start_time; //текущее время - время начала игры
+                        // РџРѕРґСЃС‡РµС‚ РІСЂРµРјРµРЅРё Рё РІС‹РІРѕРґ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ
+                        int total_time = (int)time(NULL) - *start_time; //С‚РµРєСѓС‰РµРµ РІСЂРµРјСЏ - РІСЂРµРјСЏ РЅР°С‡Р°Р»Р° РёРіСЂС‹
                         count_time(total_time, attempts);
                         system("pause");
-                        *game_over = 1; // Устанавливаем флаг окончания игры
-                        return; // Завершаем выполнение функции
+                        *game_over = 1; // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј С„Р»Р°Рі РѕРєРѕРЅС‡Р°РЅРёСЏ РёРіСЂС‹
+                        return; // Р—Р°РІРµСЂС€Р°РµРј РІС‹РїРѕР»РЅРµРЅРёРµ С„СѓРЅРєС†РёРё
                     }
                     else {
                         text_win();
@@ -139,25 +139,25 @@ void main_rec(char* user_field, char* game_field, char* symbols, int* flag, int 
                     }
                 }
                 else {
-                    *flag = 2; // Изменяем значение по указателю
+                    *flag = 2; // РР·РјРµРЅСЏРµРј Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРєР°Р·Р°С‚РµР»СЋ
                     main_rec(user_field, game_field, symbols, flag, first_card, second_card, count_couple_cards, start_time, game_over);
                 }
             }
             else {
-                printf("Некорректный номер карты, попробуйте снова! ");
+                printf("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РЅРѕРјРµСЂ РєР°СЂС‚С‹, РїРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°! ");
                 Sleep(3000);
                 game_field[first_card - 1] = ' ';
             }
         }
         else {
-            printf("Некорректный номер карты, попробуйте снова: ");
+            printf("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РЅРѕРјРµСЂ РєР°СЂС‚С‹, РїРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°: ");
         }
     }
     if (*flag == 2) {
         text_lose();
         game_field[first_card - 1] = ' ';
         game_field[second_card - 1] = ' ';
-        *flag = 0; // Изменяем значение по указателю
+        *flag = 0; // РР·РјРµРЅСЏРµРј Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРєР°Р·Р°С‚РµР»СЋ
         main_rec(user_field, game_field, symbols, flag, first_card, second_card, count_couple_cards, start_time, game_over);
     }
 }

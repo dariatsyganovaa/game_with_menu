@@ -18,11 +18,11 @@
 void print_main_menu() {
     system("cls");
 #ifdef RUS
-    printf("ГЛАВНОЕ МЕНЮ \n");
-    printf("0 - выход из игры \n");
-    printf("1 - играть \n");
-    printf("2 - настройки \n");
-    printf("Ваш выбор: \n");
+    printf("Р“Р›РђР’РќРћР• РњР•РќР® \n");
+    printf("0 - РІС‹С…РѕРґ РёР· РёРіСЂС‹ \n");
+    printf("1 - РёРіСЂР°С‚СЊ \n");
+    printf("2 - РЅР°СЃС‚СЂРѕР№РєРё \n");
+    printf("Р’Р°С€ РІС‹Р±РѕСЂ: \n");
 #else
     printf("MAIN MENU \n");
     printf("0 - exit \n");
@@ -35,14 +35,14 @@ void print_main_menu() {
 void print_game_menu() {
     system("cls");
 #ifdef RUS
-    printf("0 - выход из игры \n");
-    printf("1 - сюжетная игра \n");
-    printf("2 - угадайка \n");
-    printf("3 - крестики-нолики \n");
-    printf("4 - сапёр \n");
-    printf("5 - пары \n");
-    printf("<любая другая цифра> - назад \n");
-    printf("Ваш выбор: \n");
+    printf("0 - РІС‹С…РѕРґ РёР· РёРіСЂС‹ \n");
+    printf("1 - СЃСЋР¶РµС‚РЅР°СЏ РёРіСЂР° \n");
+    printf("2 - СѓРіР°РґР°Р№РєР° \n");
+    printf("3 - РєСЂРµСЃС‚РёРєРё-РЅРѕР»РёРєРё \n");
+    printf("4 - СЃР°РїС‘СЂ \n");
+    printf("5 - РїР°СЂС‹ \n");
+    printf("<Р»СЋР±Р°СЏ РґСЂСѓРіР°СЏ С†РёС„СЂР°> - РЅР°Р·Р°Рґ \n");
+    printf("Р’Р°С€ РІС‹Р±РѕСЂ: \n");
 #else
     printf("0 - exit \n");
     printf("1 - story game \n");
@@ -58,11 +58,11 @@ void print_game_menu() {
 void print_settings_menu() {
     system("cls");
 #ifdef RUS
-    printf("НАСТРОЙКИ МЕНЮ \n");
-    printf("0 - выход из меню настроек \n");
-    printf("1 - изменить цвет \n");
-    printf("2 - изменить размер \n");
-    printf("Ваш выбор: \n");
+    printf("РќРђРЎРўР РћР™РљР РњР•РќР® \n");
+    printf("0 - РІС‹С…РѕРґ РёР· РјРµРЅСЋ РЅР°СЃС‚СЂРѕРµРє \n");
+    printf("1 - РёР·РјРµРЅРёС‚СЊ С†РІРµС‚ \n");
+    printf("2 - РёР·РјРµРЅРёС‚СЊ СЂР°Р·РјРµСЂ \n");
+    printf("Р’Р°С€ РІС‹Р±РѕСЂ: \n");
 #else
     printf("SETTINGS MENU \n");
     printf("0 - exit \n");
@@ -74,7 +74,7 @@ void print_settings_menu() {
 
 void press_for_continue() {
 #ifdef RUS
-    printf("Чтобы продолжить игру, нажмите на любую клавишу... \n");
+    printf("Р§С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ РёРіСЂСѓ, РЅР°Р¶РјРёС‚Рµ РЅР° Р»СЋР±СѓСЋ РєР»Р°РІРёС€Сѓ... \n");
 #else
     printf("For continue, press any key... \n");
 #endif
@@ -151,7 +151,7 @@ int color_change() {
     system("cls");
     HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    printf("Введите значения цвета для шрифта и фона: \n");
+    printf("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёСЏ С†РІРµС‚Р° РґР»СЏ С€СЂРёС„С‚Р° Рё С„РѕРЅР°: \n");
     scanf_s("%d %d %d", &a, &b, &c);
     SetConsoleTextAttribute(console, a * b + c);
    
@@ -165,12 +165,12 @@ int color_change() {
 void print_size() {
     system("cls");
 #ifdef RUS
-    printf("НАСТРОЙКИ РАЗМЕРА \n");
-    printf("0 - выход \n");
-    printf("1 - маленький \n");
-    printf("2 - средний \n");
-    printf("3 - большой \n");
-    printf("Ваш выбор: \n");
+    printf("РќРђРЎРўР РћР™РљР Р РђР—РњР•Р Рђ \n");
+    printf("0 - РІС‹С…РѕРґ \n");
+    printf("1 - РјР°Р»РµРЅСЊРєРёР№ \n");
+    printf("2 - СЃСЂРµРґРЅРёР№ \n");
+    printf("3 - Р±РѕР»СЊС€РѕР№ \n");
+    printf("Р’Р°С€ РІС‹Р±РѕСЂ: \n");
 #else
     printf("SETTINGS SIZE \n");
     printf("0 - exit \n");
@@ -218,7 +218,7 @@ void resetBuffer() {
     SetConsoleWindowInfo(console, TRUE, &rect);
 }
 int choice_size(int size_x, int size_y) {
-    resetBuffer(); //сбрасывает размеры консоли
+    resetBuffer(); //СЃР±СЂР°СЃС‹РІР°РµС‚ СЂР°Р·РјРµСЂС‹ РєРѕРЅСЃРѕР»Рё
     system("title Arcade Game");
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
@@ -266,7 +266,7 @@ void print_goodbye() {
 }
 void print_two_doors() {
 #ifdef RUS
-    printf(" \t \t Какую пещеру ты выберешь, чтобы вернуться домой? \n");
+    printf(" \t \t РљР°РєСѓСЋ РїРµС‰РµСЂСѓ С‚С‹ РІС‹Р±РµСЂРµС€СЊ, С‡С‚РѕР±С‹ РІРµСЂРЅСѓС‚СЊСЃСЏ РґРѕРјРѕР№? \n");
 #else
     printf("\t\t Which cave will you choose to return home to? \n");
 #endif
@@ -289,8 +289,8 @@ void print_two_doors() {
 }
 void print_choice() {
 #ifdef RUS
-    printf("\t Вы уверены ? Нажми 'a' или 'r'. \n ");
-    printf("\t \t Ваш выбор: ");
+    printf("\t Р’С‹ СѓРІРµСЂРµРЅС‹ ? РќР°Р¶РјРё 'a' РёР»Рё 'r'. \n ");
+    printf("\t \t Р’Р°С€ РІС‹Р±РѕСЂ: ");
 #else
     printf("\t Are you sure ? Press 'a' or 'r'. \n ");
     printf("\t\t is your choice:");
@@ -298,7 +298,7 @@ void print_choice() {
 }
 void print_monster() {
 #ifdef RUS
-    printf("\t Ты забрел в пещеру к монстру. \n");
+    printf("\t РўС‹ Р·Р°Р±СЂРµР» РІ РїРµС‰РµСЂСѓ Рє РјРѕРЅСЃС‚СЂСѓ. \n");
 #else
     printf("\t You wandered into the cave of a monster. \n");
 #endif
@@ -310,7 +310,7 @@ void print_monster() {
 }
 void print_exit() {
 #ifdef RUS
-    printf("Ты нашёл секретный тоннель, позволяющий избежать столкновения с монстром. Беги! \n");
+    printf("РўС‹ РЅР°С€С‘Р» СЃРµРєСЂРµС‚РЅС‹Р№ С‚РѕРЅРЅРµР»СЊ, РїРѕР·РІРѕР»СЏСЋС‰РёР№ РёР·Р±РµР¶Р°С‚СЊ СЃС‚РѕР»РєРЅРѕРІРµРЅРёСЏ СЃ РјРѕРЅСЃС‚СЂРѕРј. Р‘РµРіРё! \n");
 #else
     printf("You have found a secret tunnel that allows you to avoid a collision with a monster. Run! \n");
 #endif
@@ -327,7 +327,7 @@ void print_exit() {
 }
 void print_fight() {
 #ifdef RUS
-    printf("\t Ты нанес удар по монстру. Так держать! \n");
+    printf("\t РўС‹ РЅР°РЅРµСЃ СѓРґР°СЂ РїРѕ РјРѕРЅСЃС‚СЂСѓ. РўР°Рє РґРµСЂР¶Р°С‚СЊ! \n");
 #else
     printf("\t You hit the monster. Keep it up ! \n");
 #endif
@@ -346,7 +346,7 @@ void print_fight() {
 }
 void print_kill_monster() {
 #ifdef RUS
-    printf("\t Поздравляю! Ты убил монстра, жившего в этой пещере. \n");
+    printf("\t РџРѕР·РґСЂР°РІР»СЏСЋ! РўС‹ СѓР±РёР» РјРѕРЅСЃС‚СЂР°, Р¶РёРІС€РµРіРѕ РІ СЌС‚РѕР№ РїРµС‰РµСЂРµ. \n");
 #else
     printf("\t Congratulations! You killed the monster that lived in this cave. \n"); 
 #endif
@@ -369,12 +369,12 @@ int start_story_game() {
     setlocale(LC_ALL, "rus");
     srand(time(0));
 
-    printf("\t \t \t \tДобро пожаловать!  \n");
+    printf("\t \t \t \tР”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ!  \n");
 
     while (hp_people > 1) { 
         while (1) {
             print_two_doors();
-            printf("\t \t \t Уже определились? Ваш выбор:");
+            printf("\t \t \t РЈР¶Рµ РѕРїСЂРµРґРµР»РёР»РёСЃСЊ? Р’Р°С€ РІС‹Р±РѕСЂ:");
             scanf_s("%d", &open);
             system("cls");
 
@@ -387,11 +387,11 @@ int start_story_game() {
                     hp_people--;
                     system("cls");
                     print_monster();
-                    printf("\t Теперь твоё здоровье: %d \n", hp_people);
+                    printf("\t РўРµРїРµСЂСЊ С‚РІРѕС‘ Р·РґРѕСЂРѕРІСЊРµ: %d \n", hp_people);
                 }
                 if (hp_people < 1) {
                     system("cls"); 
-                    printf(" К сожалению, тебя убил монстр, живущий в этой пещере. \n"); 
+                    printf(" Рљ СЃРѕР¶Р°Р»РµРЅРёСЋ, С‚РµР±СЏ СѓР±РёР» РјРѕРЅСЃС‚СЂ, Р¶РёРІСѓС‰РёР№ РІ СЌС‚РѕР№ РїРµС‰РµСЂРµ. \n"); 
                     print_goodbye();  
                     return 0;
                     break;
@@ -400,7 +400,7 @@ int start_story_game() {
                     hp_monster--; 
                     system("cls"); 
                     print_fight(); 
-                    printf("\t Теперь здоровье монстра: %d \n", hp_monster);
+                    printf("\t РўРµРїРµСЂСЊ Р·РґРѕСЂРѕРІСЊРµ РјРѕРЅСЃС‚СЂР°: %d \n", hp_monster);
                 }
                 if (hp_monster < 1) {
                     system("cls"); 
@@ -417,14 +417,14 @@ int start_story_game() {
                 if (action == 'a') {
                     if (count < 45) {
                         system("cls"); 
-                        printf("\t     Найдено %d бонусных очков. \n", gold);
-                        printf("\t В твоей копилке %d бонусных очков. \n", count);
+                        printf("\t     РќР°Р№РґРµРЅРѕ %d Р±РѕРЅСѓСЃРЅС‹С… РѕС‡РєРѕРІ. \n", gold);
+                        printf("\t Р’ С‚РІРѕРµР№ РєРѕРїРёР»РєРµ %d Р±РѕРЅСѓСЃРЅС‹С… РѕС‡РєРѕРІ. \n", count);
                         print_bonus_image(count); 
                     }
                 }
                 if (count >= 45) {
                     system("cls"); 
-                    printf("Ты набрал %d бонусов. Теперь ты можешь откупиться у монстра. Прощай!\n", count); 
+                    printf("РўС‹ РЅР°Р±СЂР°Р» %d Р±РѕРЅСѓСЃРѕРІ. РўРµРїРµСЂСЊ С‚С‹ РјРѕР¶РµС€СЊ РѕС‚РєСѓРїРёС‚СЊСЃСЏ Сѓ РјРѕРЅСЃС‚СЂР°. РџСЂРѕС‰Р°Р№!\n", count); 
                     printf(" \n"); 
                     print_goodbye(); 
                     return 1;
@@ -452,34 +452,34 @@ int start_guess_game() {
     srand(time(0));
     random_num = 1 + rand() % 100;
 #ifdef DEBUG
-    printf("Правильное число: %d\n", random_num);
+    printf("РџСЂР°РІРёР»СЊРЅРѕРµ С‡РёСЃР»Рѕ: %d\n", random_num);
 #endif
 #ifdef RUS
-    printf("Угадай моё число!\n");
+    printf("РЈРіР°РґР°Р№ РјРѕС‘ С‡РёСЃР»Рѕ!\n");
     while (1)
     {
         counter++;
         Sleep(1000);
         system("cls");
-        printf("Введите число: ");
+        printf("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ: ");
         scanf_s("%d", &guessed_num);
         system("cls");
         if (guessed_num == random_num)
         {
-            printf("Ты правильно угадал с %d попытки! Поздравляю!\n", counter);
+            printf("РўС‹ РїСЂР°РІРёР»СЊРЅРѕ СѓРіР°РґР°Р» СЃ %d РїРѕРїС‹С‚РєРё! РџРѕР·РґСЂР°РІР»СЏСЋ!\n", counter);
             return 1;
             break;
         }
         if (counter == 10 && (guessed_num != random_num)) {
-            printf("Правильное число: %d\n", random_num); 
-            printf("Вы не угадали число...\n");
+            printf("РџСЂР°РІРёР»СЊРЅРѕРµ С‡РёСЃР»Рѕ: %d\n", random_num); 
+            printf("Р’С‹ РЅРµ СѓРіР°РґР°Р»Рё С‡РёСЃР»Рѕ...\n");
             break;
         }
         if (guessed_num < random_num)
-            printf("Ваше предположение слишком низкое. Угадайте еще раз. \n");
+            printf("Р’Р°С€Рµ РїСЂРµРґРїРѕР»РѕР¶РµРЅРёРµ СЃР»РёС€РєРѕРј РЅРёР·РєРѕРµ. РЈРіР°РґР°Р№С‚Рµ РµС‰Рµ СЂР°Р·. \n");
 
         if (guessed_num > random_num)
-            printf("Ваше предположение слишком высокое. Угадайте еще раз. \n");
+            printf("Р’Р°С€Рµ РїСЂРµРґРїРѕР»РѕР¶РµРЅРёРµ СЃР»РёС€РєРѕРј РІС‹СЃРѕРєРѕРµ. РЈРіР°РґР°Р№С‚Рµ РµС‰Рµ СЂР°Р·. \n");
 
 
     }
@@ -530,16 +530,16 @@ int start_tic_tac_toe() {
             start_user_move(player_symbol);
             if (check_win(player_symbol)) {
                 print_field();
-                printf("Поздравляем! Вы выиграли!\n");
+                printf("РџРѕР·РґСЂР°РІР»СЏРµРј! Р’С‹ РІС‹РёРіСЂР°Р»Рё!\n");
                 break;
             }
-            turn = 1; // Меняем ход
+            turn = 1; // РњРµРЅСЏРµРј С…РѕРґ
         }
         else {
             start_computer_move(computer_symbol);
             if (check_win(computer_symbol)) {
                 print_field();
-                printf("Компьютер выиграл!\n");
+                printf("РљРѕРјРїСЊСЋС‚РµСЂ РІС‹РёРіСЂР°Р»!\n");
                 break;
             }
             turn = 0;
@@ -547,7 +547,7 @@ int start_tic_tac_toe() {
 
         if (check_end()) {
             print_field();
-            printf("Игра закончилась ничьей!\n");
+            printf("РРіСЂР° Р·Р°РєРѕРЅС‡РёР»Р°СЃСЊ РЅРёС‡СЊРµР№!\n");
             break;
         }
     }
@@ -561,7 +561,7 @@ int start_tic_tac_toe() {
                 printf("Congratulations! You win!\n");
                 break;
             }
-            turn = 1; // Меняем ход
+            turn = 1; // РњРµРЅСЏРµРј С…РѕРґ
         }
         else {
             start_computer_move(computer_symbol);
@@ -594,18 +594,18 @@ int start_cards() {
     int first_card = 0;
     int second_card = 0;
     int count_couple_cards = 0;
-    int game_over = 0; // Флаг окончания игры
+    int game_over = 0; // Р¤Р»Р°Рі РѕРєРѕРЅС‡Р°РЅРёСЏ РёРіСЂС‹
 
     srand(time(NULL)); 
 
     completion(user_field, game_field);
     generate_game_field(user_field, game_field, symbols, COUNT_OF_CARDS);
-    // Установка начального времени
+    // РЈСЃС‚Р°РЅРѕРІРєР° РЅР°С‡Р°Р»СЊРЅРѕРіРѕ РІСЂРµРјРµРЅРё
     int start_time = (int)time(NULL);
-    while (!game_over) { // Продолжаем, пока флаг окончания игры равен 0
+    while (!game_over) { // РџСЂРѕРґРѕР»Р¶Р°РµРј, РїРѕРєР° С„Р»Р°Рі РѕРєРѕРЅС‡Р°РЅРёСЏ РёРіСЂС‹ СЂР°РІРµРЅ 0
         main_rec(user_field, game_field, symbols, &flag, first_card, second_card, count_couple_cards, &start_time, &game_over);
     }
-    printf("Игра окончена!!!\n");
+    printf("РРіСЂР° РѕРєРѕРЅС‡РµРЅР°!!!\n");
 }
 int main() {
     int user, isExit = 0, isWin, isBack = 0;
